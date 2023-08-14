@@ -1,48 +1,49 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { movieBookingActions } from '../store/movieBooking/slice';
+import './style.scss'
 
 const Result = () => {
     const dispatch = useDispatch();
     const { chairBookings } = useSelector((state) => state.movieBooking);
     return (
         <div>
-            <h2 className="mt-5">DANH SÁCH GHẾ BẠN CHỌN</h2>
+            <h3 class="title">DANH SÁCH GHẾ BẠN CHỌN</h3>
             <div>
                 <div className="d-flex gap-3 mt-3">
-                    <div className="Chair booked"></div>
+                    <div className="Seat booked"></div>
                     <p>Ghế đã đặt</p>
                 </div>
                 <div className="d-flex gap-3 mt-3">
-                    <div className="Chair booking"></div>
+                    <div className="Seat booking"></div>
                     <p>Ghế đang chọn</p>
                 </div>
                 <div className="d-flex gap-3 mt-3">
-                    <div className="Chair"></div>
+                    <div className="Seat"></div>
                     <p>Ghế chưa đặt</p>
                 </div>
             </div>
-
+            <div className="table-wrapper">
             <table className="table mt-3">
                 <thead>
                     <tr>
                         <th>Số ghế</th>
                         <th>Giá</th>
-                        <th>Hủy</th>
+                        <th className='text-center'>Hủy</th>
                     </tr>
                 </thead>
                 <tbody>
                     {chairBookings.map((chair) => (
                         <tr key={chair.soGhe}>
                             <td>{chair.soGhe}</td>
-                            <td>{chair.gia}</td>
+                            <td>{chair.gia.toLocaleString('en-US')}</td>
                             <td
-                                className="text-danger fw-bold fs-4"
+                                className="text-danger fw-bold fs-4 text-center"
                                 style={{
                                     cursor: 'pointer',
                                 }}
                                 onClick={() => {
-                                    dispatch(movieBookingActions.setChairBookings(chair));
+                                    dispatch(movieBookingActions.setSeatBookings(chair));
                                 }}
                             >
                                 X
@@ -52,8 +53,7 @@ const Result = () => {
 
                     <tr>
                         <td>Tổng tiền thanh toán</td>
-                        <td colspan="2">{chairBookings.reduce((total, chair) => (total += chair.gia), 0)}</td>
-                        
+                        <td colspan="2">{chairBookings.reduce((total, chair) => (total += chair.gia), 0).toLocaleString('en-US')}</td>          
                     </tr>
                 </tbody>
             </table>
@@ -61,11 +61,12 @@ const Result = () => {
             <button
                 className="btn btn-success mt-3"
                 onClick={() => {
-                    dispatch(movieBookingActions.setChairBookeds());
+                    dispatch(movieBookingActions.setSeatBookeds());
                 }}
             >
                 Thanh toán
             </button>
+        </div>
         </div>
     );
 };

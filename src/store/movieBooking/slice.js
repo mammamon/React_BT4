@@ -9,7 +9,7 @@ const movieBookingSlice = createSlice({
     name: 'movieBooking',
     initialState,
     reducers: {
-        setChairBookings: (state, action) => {
+        setSeatBookings: (state, action) => {
             const index = state.chairBookings.findIndex(
                 (item) => item.soGhe === action.payload.soGhe
             );
@@ -19,7 +19,7 @@ const movieBookingSlice = createSlice({
                 state.chairBookings.push(action.payload);
             }
         },
-        setChairBookeds: (state, { payload }) => {
+        setSeatBookeds: (state, { payload }) => {
             state.chairBookeds = [...state.chairBookeds, ...state.chairBookings];
             state.chairBookings = [];
         },

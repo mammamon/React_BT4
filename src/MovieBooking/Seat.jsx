@@ -10,12 +10,12 @@ const Seat = ({ seat, className }) => {
 
     return (
         <div
-            className={cn('Chair mt-3', className, {
+            className={cn('Seat mt-3', className, {
                 booking: chairBookings.find((chair) => chair.soGhe === seat.soGhe),
                 booked: chairBookeds.find((chair) => chair.soGhe === seat.soGhe),
             })}
             onClick={() => {
-                dispatch(movieBookingActions.setChairBookings(seat));
+                dispatch(movieBookingActions.setSeatBookings(seat));
             }}
         >
             {seat.soGhe}

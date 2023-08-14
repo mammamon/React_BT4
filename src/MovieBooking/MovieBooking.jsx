@@ -13,7 +13,7 @@ const MovieBooking = () => {
                     <div className="screen text-center d-flex justify-content-center w-100">màn hình</div>
                     <SeatList data={data} />
                 </div>
-                <div className="col-4">
+                <div className="col-4 ps-5">
                     <Result />
                 </div>
             </div>
