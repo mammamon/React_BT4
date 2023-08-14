@@ -1,11 +1,10 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { baiTapMovieBookingActions } from '../store/baiTapMovieBooking/slice'
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { movieBookingActions } from '../store/movieBooking/slice';
 
 const Result = () => {
-    const dispatch = useDispatch()
-    const { chairBookings } = useSelector((state) => state.baiTapMovieBooking)
-    console.log('chairBookings: ', chairBookings)
+    const dispatch = useDispatch();
+    const { chairBookings } = useSelector((state) => state.movieBooking);
     return (
         <div>
             <h2 className="mt-5">Danh sách ghế bạn chọn</h2>
@@ -43,7 +42,7 @@ const Result = () => {
                                     cursor: 'pointer',
                                 }}
                                 onClick={() => {
-                                    dispatch(baiTapMovieBookingActions.setChairBookings(chair))
+                                    dispatch(movieBookingActions.setChairBookings(chair));
                                 }}
                             >
                                 X
@@ -53,11 +52,7 @@ const Result = () => {
 
                     <tr>
                         <td>Tổng tiền thanh toán</td>
-                        <td>
-                            {chairBookings.reduce((total, chair) => {
-                                return (total += chair.gia)
-                            }, 0)}
-                        </td>
+                        <td>{chairBookings.reduce((total, chair) => (total += chair.gia), 0)}</td>
                         <td></td>
                     </tr>
                 </tbody>
@@ -66,13 +61,13 @@ const Result = () => {
             <button
                 className="btn btn-success mt-3"
                 onClick={() => {
-                    dispatch(baiTapMovieBookingActions.setChairBookeds())
+                    dispatch(movieBookingActions.setChairBookeds());
                 }}
             >
                 Thanh toán
             </button>
         </div>
-    )
-}
+    );
+};
 
-export default Result
+export default Result;

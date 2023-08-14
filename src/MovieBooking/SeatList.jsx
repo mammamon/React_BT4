@@ -1,15 +1,14 @@
-import React from 'react'
-import Chair from './Chair'
-import cn from 'classnames'
+import React from 'react';
+import Seat from './Seat';
+import cn from 'classnames';
 
-const ChairList = ({ data }) => {
-    console.log('data: ', data)
+const SeatList = ({ data }) => {
     return (
         <div>
-            {data.map((hangGhe) => {
+            {data.map((rowSeat) => {
                 return (
                     <div
-                        key={hangGhe.hang}
+                        key={rowSeat.hang}
                         className={cn('d-flex gap-3')}
                         style={{
                             justifyContent: 'center',
@@ -22,24 +21,24 @@ const ChairList = ({ data }) => {
                                 width: 30,
                             }}
                         >
-                            {hangGhe.hang}
+                            {rowSeat.hang}
                         </p>
-                        {hangGhe.danhSachGhe.map((ghe) => {
+                        {rowSeat.danhSachGhe.map((seat) => {
                             return (
-                                <Chair
+                                <Seat
                                     className={cn({
-                                        disabled: !hangGhe.hang,
+                                        disabled: !rowSeat.hang,
                                     })}
-                                    key={ghe.soGhe}
-                                    ghe={ghe}
+                                    key={seat.soGhe}
+                                    seat={seat}
                                 />
-                            )
+                            );
                         })}
                     </div>
-                )
+                );
             })}
         </div>
-    )
-}
+    );
+};
 
-export default ChairList
+export default SeatList;

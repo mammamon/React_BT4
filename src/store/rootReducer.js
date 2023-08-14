@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux'
-import { baiTapMovieBookingReducer } from './baiTapMovieBooking/slice'
+import { combineReducers } from 'redux';
+import { movieBookingReducer } from './movieBooking/slice';
 
 export const rootReducer = combineReducers({
-    baiTapMovieBooking: baiTapMovieBookingReducer,
-})
+    movieBooking: movieBookingReducer,
+});
