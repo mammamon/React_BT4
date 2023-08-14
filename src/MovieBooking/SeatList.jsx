@@ -1,6 +1,7 @@
 import React from 'react';
 import Seat from './Seat';
 import cn from 'classnames';
+import './style.scss'
 
 const SeatList = ({ data }) => {
     return (
@@ -9,7 +10,7 @@ const SeatList = ({ data }) => {
                 return (
                     <div
                         key={rowSeat.hang}
-                        className={cn('d-flex gap-3')}
+                        className={cn('d-flex gap-3 row-seat')}
                         style={{
                             justifyContent: 'center',
                             alignItems: 'center',
@@ -27,7 +28,8 @@ const SeatList = ({ data }) => {
                             return (
                                 <Seat
                                     className={cn({
-                                        disabled: !rowSeat.hang,
+                                        'first-row-seat': rowSeat.hang === '',
+                                        'disabled': rowSeat.hang === '',
                                     })}
                                     key={seat.soGhe}
                                     seat={seat}
@@ -40,5 +42,8 @@ const SeatList = ({ data }) => {
         </div>
     );
 };
+
+
+
 
 export default SeatList;

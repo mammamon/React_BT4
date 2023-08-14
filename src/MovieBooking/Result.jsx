@@ -7,7 +7,7 @@ const Result = () => {
     const { chairBookings } = useSelector((state) => state.movieBooking);
     return (
         <div>
-            <h2 className="mt-5">Danh sách ghế bạn chọn</h2>
+            <h2 className="mt-5">DANH SÁCH GHẾ BẠN CHỌN</h2>
             <div>
                 <div className="d-flex gap-3 mt-3">
                     <div className="Chair booked"></div>
@@ -15,7 +15,7 @@ const Result = () => {
                 </div>
                 <div className="d-flex gap-3 mt-3">
                     <div className="Chair booking"></div>
-                    <p>Ghế đang chon</p>
+                    <p>Ghế đang chọn</p>
                 </div>
                 <div className="d-flex gap-3 mt-3">
                     <div className="Chair"></div>
@@ -52,8 +52,8 @@ const Result = () => {
 
                     <tr>
                         <td>Tổng tiền thanh toán</td>
-                        <td>{chairBookings.reduce((total, chair) => (total += chair.gia), 0)}</td>
-                        <td></td>
+                        <td colspan="2">{chairBookings.reduce((total, chair) => (total += chair.gia), 0)}</td>
+                        
                     </tr>
                 </tbody>
             </table>

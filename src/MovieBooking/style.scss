@@ -1,15 +1,38 @@
+@font-face {
+    font-family: 'fontGame';
+    src: url('./Pony.ttf');
+}
+
+.text-orange {
+    color: orange;
+}
+
+body {
+    font-family: fontGame;
+    color: white;
+}
+
+.bg-movie {
+    background-image: url('../../public/images/bgmovie.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .Chair {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 35px;
+    font-size: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
-    border-radius: 6px;
+    border: 3px solid orange;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
 
     &:hover {
         cursor: pointer;
-        background-color: black;
+        background-color: red;
         color: white;
         transition: all 0.3s ease-in-out;
     }
@@ -21,14 +44,49 @@
     }
 
     &.booked {
-        background-color: grey;
-        color: white;
-        border: transparent;
+        border: 3px solid orange;
         pointer-events: none;
+        background: orange;
+        color: #000;
+        cursor: no-drop !important;
+        border-radius: 5px;
+
     }
 
     &.disabled {
         border: transparent;
         pointer-events: none;
     }
+}
+
+.row-seat,
+.first-row-seat {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: yellow;
+}
+
+.screen {
+    border-bottom: 50px solid rgb(255, 159, 95);
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    height: 100;
+    width: 80%;
+    filter: drop-shadow(4px 30px 20px rgba(255, 255, 255, 0.5));
+    font-size: 25px;
+    color: #fff;
+
+}
+
+.table td {
+    border: 1px solid #fff;
+    background-color: transparent;
+    color: orange;
+}
+
+.table th {
+    background-color: transparent;
+    color: white;
+    border: 1px solid #fff;
 }
